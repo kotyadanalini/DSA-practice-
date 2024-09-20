@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt(); // Read input
+        
+        if (n == 1 || n == 2) {
+            System.out.println(1); // Base cases
+        } else {
+            long a = 1; // F(1)
+            long b = 1; // F(2)
+            long fib = 0; // To store the current Fibonacci number
+            
+            // Calculate Fibonacci iteratively
+            for (int i = 3; i <= n; i++) {
+                fib = a + b; // F(n) = F(n-1) + F(n-2)
+                a = b; // Update F(n-2)
+                b = fib; // Update F(n-1)
+            }
+            
+            System.out.println(fib); // Output the n-th Fibonacci number
+        }
+        
+        sc.close(); // Close the scanner
+    }
+}
